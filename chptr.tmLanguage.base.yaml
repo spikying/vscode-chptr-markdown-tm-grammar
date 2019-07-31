@@ -1,6 +1,6 @@
 fileTypes: [md, chptr]
 keyEquivalent: ^~C
-name: Chptr
+name: Markdown
 patterns:
 - {include: '#frontMatter'}
 - {include: '#block'}
@@ -454,24 +454,24 @@ repository:
     name: meta.link.reference.markdown
   chptr-markup:
     captures:
-      '1': {name: punctuation.definition.string.begin.markdown}
-      '2': {name: punctuation.definition.bold.markdown}
-      '3': {name: punctuation.definition.string.begin.markdown}
-    match: (?<!{)({)([^:,.!\n{}]+?)(})(?!})
-    name: markup.chptr.markdown
+      '1': {name: punctuation.definition.raw.markdown}
+      '2': {name: markup.bold.markdown} # {name: heading.6.markdown}
+      '3': {name: punctuation.definition.raw.markdown}
+    match: ({)([^:,.!\n{}]+?)(})
+    name: markup.italic.markdown
   chptr-kv-markup:
     captures:
-      '1': {name: punctuation.definition.string.begin.markdown}
-      '2': {name: punctuation.definition.bold.markdown}
-      '3': {name: punctuation.definition.comment.html}
-      '4': {name: punctuation.definition.string.begin.markdown}
-    match: (?<!{)({)([^}]*?)\s?:(\s?.*?)(})(?!})
-    name: markup.chptr.markdown
+      '1': {name: punctuation.definition.raw.markdown}
+      '2': {name: string.other.link.description.title.markdown}
+      '3': {name: comment.block.html}
+      '4': {name: punctuation.definition.raw.markdown}
+    match: ({)([^}]*?\s?):(\s?.*?)(})
+    name: markup.italic.markdown
   raw:
     captures:
       '1': {name: punctuation.definition.raw.markdown}
       '3': {name: punctuation.definition.raw.markdown}
     match: (`+)([^`]|(?!(?<!`)\1(?!`))`)*+(\1)
     name: markup.inline.raw.string.markdown
-scopeName: text.html.markdown.chptr
+scopeName: text.html.markdown
 uuid: 0A1D9874-B448-11D9-BD50-000D93B6E43C

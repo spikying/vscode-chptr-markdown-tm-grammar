@@ -26,8 +26,8 @@
   "contributes": {
     "grammars": [
       {
-        "language": "chptr",
-        "scopeName": "text.html.markdown.chptr",
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
         "path": "./syntaxes/chptr.tmLanguage"
       }
     ]

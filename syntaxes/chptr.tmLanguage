@@ -10,7 +10,7 @@
     <key>keyEquivalent</key>
     <string>^~C</string>
     <key>name</key>
-    <string>Chptr</string>
+    <string>Markdown</string>
     <key>patterns</key>
     <array>
       <dict>
@@ -4148,23 +4148,23 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.string.begin.markdown</string>
+            <string>punctuation.definition.raw.markdown</string>
           </dict>
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.bold.markdown</string>
+            <string>markup.bold.markdown</string>
           </dict>
           <key>3</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.string.begin.markdown</string>
+            <string>punctuation.definition.raw.markdown</string>
           </dict>
         </dict>
         <key>match</key>
-        <string>(?&lt;!{)({)([^:,.!\n{}]+?)(})(?!})</string>
+        <string>({)([^:,.!\n{}]+?)(})</string>
         <key>name</key>
-        <string>markup.chptr.markdown</string>
+        <string>markup.italic.markdown</string>
       </dict>
       <key>chptr-kv-markup</key>
       <dict>
@@ -4173,28 +4173,28 @@
           <key>1</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.string.begin.markdown</string>
+            <string>punctuation.definition.raw.markdown</string>
           </dict>
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.bold.markdown</string>
+            <string>string.other.link.description.title.markdown</string>
           </dict>
           <key>3</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.comment.html</string>
+            <string>comment.block.html</string>
           </dict>
           <key>4</key>
           <dict>
             <key>name</key>
-            <string>punctuation.definition.string.begin.markdown</string>
+            <string>punctuation.definition.raw.markdown</string>
           </dict>
         </dict>
         <key>match</key>
-        <string>(?&lt;!{)({)([^}]*?)\s?:(\s?.*?)(})(?!})</string>
+        <string>({)([^}]*?\s?):(\s?.*?)(})</string>
         <key>name</key>
-        <string>markup.chptr.markdown</string>
+        <string>markup.italic.markdown</string>
       </dict>
       <key>raw</key>
       <dict>
@@ -4218,7 +4218,7 @@
       </dict>
     </dict>
     <key>scopeName</key>
-    <string>text.html.markdown.chptr</string>
+    <string>text.html.markdown</string>
     <key>uuid</key>
     <string>0A1D9874-B448-11D9-BD50-000D93B6E43C</string>
   </dict>
