@@ -6,9 +6,13 @@
   "scripts": {
     "build": "node build",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test ./test"
+    "test": "node ./node_modules/vscode/bin/test ./test",
+    "prepackage": "npm run-script build",
+    "package": "vsce package",
+    "preinstall": "npm run-script package",
+    "install": "code --install-extension vscode-chptr-markdown-tm-grammar-1.0.0.vsix"
   },
-  "activationEvents": [],
+  "activationEvents": ["onLanguage:markdown"],
   "engines": {
     "vscode": "^1.28.0"
   },
@@ -27,10 +31,22 @@
     "url": "https://github.com/spikying/vscode-chptr-markdown-tm-grammar/issues"
   },
   "contributes": {
+    "configuration": {
+      "title": "md-chptr"
+    },
+    "languages": [
+      {
+        "id": "markdown",
+        "extensions": [
+          "md",
+          "chptr"
+        ]
+      }
+    ],
     "grammars": [
       {
-        "language": "markdown",
-        "scopeName": "text.html.markdown",
+        "injectTo": ["text.html.markdown"],
+        "scopeName": "markdown.chptr",
         "path": "./syntaxes/chptr.tmLanguage"
       }
     ]
