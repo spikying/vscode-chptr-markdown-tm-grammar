@@ -1,30 +1,31 @@
 fileTypes: [md, chptr]
-injectionSelector: "meta.paragraph.markdown"
+injectionSelector: L:meta.paragraph.markdown
 patterns:
+- {include: '#chptr-para-markup'}
+- {include: '#chptr-markup'}
+- {include: '#chptr-kv-markup'}
+repository:
+  chptr-para-markup:
+    captures:
+      '1': {name: punctuation.definition.raw.markdown}
+      '2': {name: comment.block.html}
+      '3': {name: punctuation.definition.raw.markdown}
+    match: ({{)(\d+?)(}})
+    name: comment.block.html
   chptr-markup:
-    # captures:
-    #   '1': {name: punctuation.definition.raw.markdown}
-    #   '2': {name: markup.bold.markdown} # {name: heading.6.markdown}
-    #   '3': {name: punctuation.definition.raw.markdown}
-    # match: ({)([^:,.!\n{}]+?)(})
-    # name: markup.italic.markdown
-    name: "chptr-markup"
-    begin: ({)
-    end: (})
-    contentName: markup.italic.markdown
-  # chptr-kv-markup:
-  #   captures:
-  #     '1': {name: punctuation.definition.raw.markdown}
-  #     '2': {name: string.other.link.description.title.markdown}
-  #     '3': {name: comment.block.html}
-  #     '4': {name: punctuation.definition.raw.markdown}
-  #   match: ({)([^}]*?\s?):(\s?.*?)(})
-  #   name: markup.italic.markdown
-  # chptr-para-markup:
-  #   captures:
-  #     '1': {name: punctuation.definition.raw.markdown}
-  #     '2': {name: markup.italic.markdown}
-  #     '3': {name: punctuation.definition.raw.markdown}
-  #   match: ({{)(\d+?)(}})
-  #   name: comment.block.html
-scopeName: markdown.chptr
+    captures:
+      '1': {name: punctuation.definition.raw.markdown}
+      '2': {name: markup.bold.markdown} # {name: heading.6.markdown}
+      '3': {name: punctuation.definition.raw.markdown}
+    match: ({)([^:,.!\n{}]+?)(})
+    name: comment.block.html # markup.italic.markdown
+  chptr-kv-markup:
+    captures:
+      '1': {name: punctuation.definition.raw.markdown}
+      '2': {name: string.other.link.description.title.markdown}
+      '3': {name: comment.block.html}
+      '4': {name: punctuation.definition.raw.markdown}
+    match: ({)([^}]*?\s?):(\s?.*?)(})
+    name: comment.block.html # markup.italic.markdown
+scopeName: chptr.injection
+name: Chptr Markdown

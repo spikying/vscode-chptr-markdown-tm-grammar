@@ -2,7 +2,7 @@
   "name": "vscode-chptr-markdown-tm-grammar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./out/extension.js",
   "scripts": {
     "build": "node build",
     "postinstall": "node ./node_modules/vscode/bin/install",
@@ -34,20 +34,11 @@
     "configuration": {
       "title": "md-chptr"
     },
-    "languages": [
-      {
-        "id": "markdown",
-        "extensions": [
-          "md",
-          "chptr"
-        ]
-      }
-    ],
     "grammars": [
       {
-        "injectTo": ["text.html.markdown"],
-        "scopeName": "markdown.chptr",
-        "path": "./syntaxes/chptr.tmLanguage"
+        "path": "./syntaxes/chptr.tmLanguage",
+        "scopeName": "chptr.injection",
+        "injectTo": ["text.html.markdown"]        
       }
     ]
   },

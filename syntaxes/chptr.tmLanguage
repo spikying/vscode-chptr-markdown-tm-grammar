@@ -8,22 +8,108 @@
       <string>chptr</string>
     </array>
     <key>injectionSelector</key>
-    <string>meta.paragraph.markdown</string>
+    <string>L:meta.paragraph.markdown</string>
     <key>patterns</key>
+    <array>
+      <dict>
+        <key>include</key>
+        <string>#chptr-para-markup</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#chptr-markup</string>
+      </dict>
+      <dict>
+        <key>include</key>
+        <string>#chptr-kv-markup</string>
+      </dict>
+    </array>
+    <key>repository</key>
     <dict>
+      <key>chptr-para-markup</key>
+      <dict>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>comment.block.html</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+        </dict>
+        <key>match</key>
+        <string>({{)(\d+?)(}})</string>
+        <key>name</key>
+        <string>comment.block.html</string>
+      </dict>
       <key>chptr-markup</key>
       <dict>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>markup.bold.markdown</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+        </dict>
+        <key>match</key>
+        <string>({)([^:,.!\n{}]+?)(})</string>
         <key>name</key>
-        <string>chptr-markup</string>
-        <key>begin</key>
-        <string>({)</string>
-        <key>end</key>
-        <string>(})</string>
-        <key>contentName</key>
-        <string>markup.italic.markdown</string>
+        <string>comment.block.html</string>
+      </dict>
+      <key>chptr-kv-markup</key>
+      <dict>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>string.other.link.description.title.markdown</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>comment.block.html</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.raw.markdown</string>
+          </dict>
+        </dict>
+        <key>match</key>
+        <string>({)([^}]*?\s?):(\s?.*?)(})</string>
+        <key>name</key>
+        <string>comment.block.html</string>
       </dict>
     </dict>
     <key>scopeName</key>
-    <string>markdown.chptr</string>
+    <string>chptr.injection</string>
+    <key>name</key>
+    <string>Chptr Markdown</string>
   </dict>
 </plist>
