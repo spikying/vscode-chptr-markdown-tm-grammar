@@ -5,14 +5,12 @@
     <key>fileTypes</key>
     <array>
       <string>md</string>
-      <string>mdown</string>
-      <string>markdown</string>
-      <string>markdn</string>
+      <string>chptr</string>
     </array>
     <key>keyEquivalent</key>
-    <string>^~M</string>
+    <string>^~C</string>
     <key>name</key>
-    <string>Markdown</string>
+    <string>Chptr</string>
     <key>patterns</key>
     <array>
       <dict>
@@ -3478,6 +3476,14 @@
             <key>include</key>
             <string>#link-ref-shortcut</string>
           </dict>
+          <dict>
+            <key>include</key>
+            <string>#chptr-markup</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#chptr-kv-markup</string>
+          </dict>
         </array>
       </dict>
       <key>ampersand</key>
@@ -4135,6 +4141,61 @@
         <key>name</key>
         <string>meta.link.reference.markdown</string>
       </dict>
+      <key>chptr-markup</key>
+      <dict>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.markdown</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.bold.markdown</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.markdown</string>
+          </dict>
+        </dict>
+        <key>match</key>
+        <string>(?&lt;!{)({)([^:,.!\n{}]+?)(})(?!})</string>
+        <key>name</key>
+        <string>markup.chptr.markdown</string>
+      </dict>
+      <key>chptr-kv-markup</key>
+      <dict>
+        <key>captures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.markdown</string>
+          </dict>
+          <key>2</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.bold.markdown</string>
+          </dict>
+          <key>3</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.comment.html</string>
+          </dict>
+          <key>4</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.markdown</string>
+          </dict>
+        </dict>
+        <key>match</key>
+        <string>(?&lt;!{)({)([^}]*?)\s?:(\s?.*?)(})(?!})</string>
+        <key>name</key>
+        <string>markup.chptr.markdown</string>
+      </dict>
       <key>raw</key>
       <dict>
         <key>captures</key>
@@ -4157,7 +4218,7 @@
       </dict>
     </dict>
     <key>scopeName</key>
-    <string>text.html.markdown</string>
+    <string>text.html.markdown.chptr</string>
     <key>uuid</key>
     <string>0A1D9874-B448-11D9-BD50-000D93B6E43C</string>
   </dict>

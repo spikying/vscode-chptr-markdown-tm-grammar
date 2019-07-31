@@ -1,8 +1,6 @@
-# VS Code Markdown Grammar
+# VS Code Chptr Markdown Grammar
 
-[![Build Status](https://travis-ci.org/Microsoft/vscode-markdown-tm-grammar.svg?branch=master)](https://travis-ci.org/Microsoft/vscode-markdown-tm-grammar)
-
-VS Code markdown extension's Textmate grammar.
+VS Code chptr markdown extension's Textmate grammar.  Based on Microsoft's VS Code Markdown extension.
 
 # Contributing
 The main grammar is stored in `syntaxes/markdown.tmLanguage`. This file is generated from `markdown.tmLanguage.base.yaml`:

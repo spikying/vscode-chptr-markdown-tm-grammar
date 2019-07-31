@@ -1,6 +1,6 @@
-fileTypes: [md, mdown, markdown, markdn]
-keyEquivalent: ^~M
-name: Markdown
+fileTypes: [md, chptr]
+keyEquivalent: ^~C
+name: Chptr
 patterns:
 - {include: '#frontMatter'}
 - {include: '#block'}
@@ -199,6 +199,8 @@ repository:
     - {include: '#link-ref'}
     - {include: '#link-ref-literal'}
     - {include: '#link-ref-shortcut'}
+    - {include: '#chptr-markup'}
+    - {include: '#chptr-kv-markup'}
   ampersand:
     comment: "Markdown will convert this for us. We match it so that the HTML grammar will not mark it up as invalid."
     match: '&(?!([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)'
@@ -450,11 +452,26 @@ repository:
       '3': {name: punctuation.definition.string.end.markdown}
     match: (\[)(\S+?)(\])
     name: meta.link.reference.markdown
+  chptr-markup:
+    captures:
+      '1': {name: punctuation.definition.string.begin.markdown}
+      '2': {name: punctuation.definition.bold.markdown}
+      '3': {name: punctuation.definition.string.begin.markdown}
+    match: (?<!{)({)([^:,.!\n{}]+?)(})(?!})
+    name: markup.chptr.markdown
+  chptr-kv-markup:
+    captures:
+      '1': {name: punctuation.definition.string.begin.markdown}
+      '2': {name: punctuation.definition.bold.markdown}
+      '3': {name: punctuation.definition.comment.html}
+      '4': {name: punctuation.definition.string.begin.markdown}
+    match: (?<!{)({)([^}]*?)\s?:(\s?.*?)(})(?!})
+    name: markup.chptr.markdown
   raw:
     captures:
       '1': {name: punctuation.definition.raw.markdown}
       '3': {name: punctuation.definition.raw.markdown}
     match: (`+)([^`]|(?!(?<!`)\1(?!`))`)*+(\1)
     name: markup.inline.raw.string.markdown
-scopeName: text.html.markdown
+scopeName: text.html.markdown.chptr
 uuid: 0A1D9874-B448-11D9-BD50-000D93B6E43C
